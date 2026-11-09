@@ -42,6 +42,7 @@ def split_dataset(df):
 
 
 def train():
+    """Train the model on train spliot and save joblib model"""
     df = load_dataset()
     X_train, X_test, Y_train, Y_test = split_dataset(df)
 
