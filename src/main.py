@@ -7,7 +7,7 @@ from sklearn.metrics import classification_report
 from sklearn.preprocessing import MultiLabelBinarizer
 
 from src.data import TARGET_TAGS
-from src.train import COLS, MODEL_PATH, TEST_PATH
+from src.train import MODEL_PATH, TEST_PATH
 
 
 def predict(src_uid=None):

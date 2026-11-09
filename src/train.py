@@ -5,21 +5,19 @@ from iterstrat.ml_stratifiers import MultilabelStratifiedShuffleSplit
 from sklearn.compose import ColumnTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MultiLabelBinarizer
 
 from src.data import load_dataset, TARGET_TAGS
 
-COLS = ["prob_desc_description", "source_code"]
 MODEL_PATH = Path("models/model.joblib") # Save of the trained model in joblib format
 TRAIN_PATH = Path("data/train.parquet") # Save of the train split in parquet format
 TEST_PATH = Path("data/test.parquet") # Save of the test split in parquet format
 
 
 def build_model():
-    """Logistic Regression model with TF-IDF features for both description and source code"""
+    """predicition pipeline :Logistic Regression model with TF-IDF features for both description and source code"""
     return Pipeline([
         ("features", ColumnTransformer([
             ("desc", TfidfVectorizer(stop_words="english", ngram_range=(1, 2), min_df=2, sublinear_tf=True),
@@ -34,7 +32,8 @@ def build_model():
 def split_dataset(df):
     """Train test split with stratification on multilabels using iterative-stratification package"""
     mlb = MultiLabelBinarizer(classes=TARGET_TAGS) # Encode labels as a binary array
-    Y = mlb.fit_transform(df["tags"])
+    Y = mlb.fit_transform(df["tags"]) # Target 
+
     msss = MultilabelStratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state= 42)
     train_idx, test_idx = next(msss.split(df, Y)) # Only 1 split so we use next for indexes
     X = df.drop(columns="tags")
