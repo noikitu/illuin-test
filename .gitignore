@@ -4,3 +4,4 @@ models/
 *.zip
 __pycache__/
 .venv/
+*.npy
