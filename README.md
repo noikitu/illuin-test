@@ -4,7 +4,7 @@
 
 **FRENCH DISCLAIMER** : Le code de cet exercice à été rédigé et commenté en anglais intégralement de manière à le rendre lisible pour n'importe quel examinateur. 
 
-**USAGE OF AI** : Since no specific rules regarding AI were specified, AI was used in this project on a case-by-case basis. I wrote the majority of the code myself without using AI. However, an LLM (Claude) was used for finishing tasks, such as formatting graphs with matplotlib, drafting explorations of new avenues, or interacting with the documentation for certain libraries.
+**USAGE OF AI** : Since no specific rules regarding AI were specified, AI was used in this project on a case-by-case basis. I wrote the majority of the code myself without using AI. However, an LLM (Claude) was used for some tasks, such as formatting graphs with matplotlib, drafting explorations of new ideas, or interacting with the documentation for certain libraries.
 
 This project predicts the tags of a Codeforces exercise. The tags are restrained to "math", "graphs", "strings", "number theory", "trees", "geometry", "games" and "probabilities", and the prediction is made from an exercise's description and source code.
 
