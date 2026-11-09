@@ -1,0 +1,9 @@
+pandas
+scikit-learn
+python-dotenv
+langchain-groq
+ipykernel
+sentence-transformers
+iterative-stratification
+matplotlib
+pyarrow
